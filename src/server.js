@@ -15,7 +15,6 @@ const client = new RestClient(API_BASE_URL);
         id: 1,
         title: 'New post title',
         description: 'New post body',
-        userId: 1
     };
     const createdPost = await client.create('/posts', newPost);
     console.log('POST /posts:', createdPost);
@@ -25,7 +24,6 @@ const client = new RestClient(API_BASE_URL);
         id: 1,
         title: 'Updated post title',
         description: 'Updated post body',
-        userId: 1,
     };
     const result = await client.update(`/posts/${updatedPost.id}`, updatedPost);
     console.log(`PUT /posts/${updatedPost.id}:`, result);
