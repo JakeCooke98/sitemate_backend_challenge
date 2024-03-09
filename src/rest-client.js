@@ -2,6 +2,8 @@
 const axios = require('axios');
 
 class RestClient {
+
+    // Adding constructor for AXIOS client and setting variables
     constructor(baseURL) {
         this.client = axios.create({
             baseURL: baseURL,
@@ -9,6 +11,7 @@ class RestClient {
         });
     }
 
+    // To read any posts that have been sent on the API
     async read(url) {
         try {
             const response = await this.client.get(url);
@@ -18,6 +21,7 @@ class RestClient {
         }
     }
 
+    // To create any posts on the API
     async create(url, data) {
         try {
             const response = await this.client.post(url, data);
@@ -27,6 +31,7 @@ class RestClient {
         }
     }
 
+    // To update any existing posts on the API
     async update(url, data) {
         try {
             const response = await this.client.put(url, data);
@@ -36,6 +41,7 @@ class RestClient {
         }
     }
 
+    // To delete a post on the API
     async delete(url) {
         try {
             const response = await this.client.delete(url);
@@ -44,6 +50,8 @@ class RestClient {
             console.error(error);
         }
     }
+
+    // Utilized try, catch blocks on each method so that if any of our methods fail we will get a helpful error message.
 }
 
 module.exports = RestClient;
